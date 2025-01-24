@@ -1,7 +1,7 @@
 <template>
   <div class="background-color">
       <h2>JAMZ</h2>
-      <video ref="videoPlayer" controls autoplay muted poster="@/assets/jamzImage.webp"></video>
+      <iframe   width="1500" height="800" src="https://10.0.210.97:8554/"></iframe>
   </div>
 </template>
 
@@ -9,30 +9,9 @@
 export default {
   data() {
     return {
-      ws: null,
+   
     };
   },
-  mounted() {
-    this.ws = new WebSocket("ws://localhost:3000");
-
-    this.ws.onopen = () => {
-      console.log("WebSocket connected!");
-    };
-
-    this.ws.onmessage = (event) => {
-      const blob = new Blob([event.data], { type: "video/mp4" });
-      const videoUrl = URL.createObjectURL(blob);
-      this.$refs.videoPlayer.src = videoUrl;
-    };
-
-    this.ws.onclose = () => {
-      console.log("WebSocket disconnected");
-    };
-
-    this.ws.onerror = (error) => {
-      console.error("WebSocket error:", error);
-    };
-  }
 };
 </script> 
 
