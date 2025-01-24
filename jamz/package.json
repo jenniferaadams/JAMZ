@@ -33,9 +33,9 @@
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
+      "parser": "@babel/eslint-parser",
+      "requireConfigFile": false
+    }
   },
   "browserslist": [
     "> 1%",
